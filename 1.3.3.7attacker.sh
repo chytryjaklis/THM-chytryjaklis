@@ -9,7 +9,7 @@ fi
 
 check_username() {
     local username="$1"
-    response=$( (echo "$username") | socat - TCP:10.10.57.117:1337,connect-timeout=1 )
+    response=$( (echo "$username") | socat - TCP:{IP}:1337,connect-timeout=1 )
   
     if echo "$response" | grep -q "Password"; then
         echo "Password prompt received for username '$username'!"
